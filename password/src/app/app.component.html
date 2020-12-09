@@ -2,7 +2,7 @@
 
 <div>
   <label>Enter Length</label>
-  <input (input)="onChangeLength($event.target.value)" type="number" [value]="length" />
+  <input (input)="onChangeLength($event.target.value)" type="number" [value]="length" min="4" max="32" />
 </div>
 
 <div>
@@ -21,7 +21,8 @@
 </div>
 
 <div>
-  <button (click)="onButtonClick()">Generate!</button>
+  <button (click)="onButtonClick()"
+    [disabled]="!(length > 0 && (includeLetters || includeNumbers || includeSymbols))">Generate!</button>
 </div>
 
 <div>

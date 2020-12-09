@@ -13,7 +13,7 @@ export class AppComponent {
   includeSymbols: boolean = true;
 
   onChangeLength(value: number): void {
-    if (!isNaN(value)) {
+    if (!isNaN(value) && value > 0) {
       this.length = value;
     }
   }
@@ -31,7 +31,12 @@ export class AppComponent {
   }
 
   onButtonClick(): void {
-    const letters: string = 'abcdefghijklmnopqrstuvwxyz';
+    if (this.length <= 0) {
+      return;
+    }
+
+    const letters: string =
+      'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     const numbers: string = '0123456789';
     const symbols: string = '~!@#$%^&*()';
 
