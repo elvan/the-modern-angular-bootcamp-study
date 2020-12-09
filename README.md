@@ -1,4 +1,4 @@
-# The Modern Angular Bootcamp Examples
-Hands-on projects for the study of a course on Udemy by Stephen Grider
+# The Modern Angular Bootcamp (study files)
+Hands-on projects from a course on Udemy by Stephen Grider
 
 https://www.udemy.com/course/the-modern-angular-bootcamp/
