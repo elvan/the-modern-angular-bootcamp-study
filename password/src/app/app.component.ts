@@ -8,13 +8,29 @@ import { Component } from '@angular/core';
 export class AppComponent {
   password: string = '';
   includeLetters: boolean = true;
+  includeNumbers: boolean = true;
+  includeSymbols: boolean = true;
 
   onChangeUseLetters() {
     this.includeLetters = !this.includeLetters;
-    console.log(this.includeLetters);
+  }
+
+  onChangeUseNumbers() {
+    this.includeNumbers = !this.includeNumbers;
+  }
+
+  onChangeUseSymbols() {
+    this.includeSymbols = !this.includeSymbols;
   }
 
   onButtonClick() {
     this.password = 'MY PASSWORD!!!';
+
+    console.log(`
+    About to generate a password with the following:
+    Use Letters: ${this.includeLetters}
+    Use Numbers: ${this.includeNumbers}
+    Use Symbols: ${this.includeSymbols}
+    `);
   }
 }
