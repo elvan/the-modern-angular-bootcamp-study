@@ -31,14 +31,28 @@ export class AppComponent {
   }
 
   onButtonClick(): void {
-    this.password = 'MY PASSWORD!!!';
+    const letters: string = 'abcdefghijklmnopqrstuvwxyz';
+    const numbers: string = '0123456789';
+    const symbols: string = '~!@#$%^&*()';
 
-    console.log(`
-    About to generate a password with the following:
-    Length: ${this.length}
-    Use Letters: ${this.includeLetters}
-    Use Numbers: ${this.includeNumbers}
-    Use Symbols: ${this.includeSymbols}
-    `);
+    let validChars: string = '';
+
+    if (this.includeLetters) {
+      validChars += letters;
+    }
+    if (this.includeNumbers) {
+      validChars += numbers;
+    }
+    if (this.includeSymbols) {
+      validChars += symbols;
+    }
+
+    let generatedPassword: string = '';
+    for (let i = 0; i < this.length; i++) {
+      const index = Math.floor(Math.random() * validChars.length);
+      generatedPassword += validChars[index];
+    }
+
+    this.password = generatedPassword;
   }
 }
