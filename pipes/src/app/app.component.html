@@ -1,6 +1,17 @@
-<div>
-  <label>Receiver Name</label>
-  <input (input)="onNameChange($event.target.value)" />
-</div>
+<div class="container">
+  <h3>Pipes Examples</h3>
 
-{{ name | titlecase }}
+  <div class="row">
+    <div class="form-group col">
+      <label>Receiver Name</label>
+      <input (input)="onNameChange($event.target.value)" class="form-control" />
+    </div>
+
+    <div class="col">
+      <label><b>Name</b></label>
+      <div>
+        {{ name | titlecase }}
+      </div>
+    </div>
+  </div>
+</div>
