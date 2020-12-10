@@ -1,19 +1,19 @@
 <nav>
   <ul class="pagination">
-    <li [ngClass]="{ disabled: currentPage === 0 }"
+    <li [appClass]="{ disabled: currentPage === 0 }"
       class="page-item">
       <a (click)="currentPage = currentPage - 1"
         class="page-link">Prev</a>
     </li>
     <ng-container *ngFor="let image of images; let i = index">
       <li *ngIf="checkWindowIndex(i)"
-        [ngClass]="{ active: i === currentPage}"
+        [appClass]="{ active: i === currentPage}"
         class="page-item">
         <a (click)="currentPage = i"
           class="page-link">{{ i + 1}}</a>
       </li>
     </ng-container>
-    <li [ngClass]="{ disabled: currentPage === images.length - 1 }"
+    <li [appClass]="{ disabled: currentPage === images.length - 1 }"
       class="page-item">
       <a (click)="currentPage = currentPage + 1"
         class="page-link">Next</a>
