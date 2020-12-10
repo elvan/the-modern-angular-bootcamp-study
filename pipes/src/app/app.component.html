@@ -12,6 +12,7 @@
       <div>
         {{ name | titlecase }}
       </div>
+      {{ name | json }}
     </div>
   </div>
 
@@ -26,6 +27,7 @@
       <div>
         {{ date | date: 'MMMM dd, yyyy' }}
       </div>
+      {{ date | json }}
     </div>
   </div>
 
@@ -40,6 +42,7 @@
       <div>
         {{ amount | currency }}
       </div>
+      {{ amount | json }}
     </div>
   </div>
 
@@ -54,6 +57,7 @@
       <div>
         {{ height | number: '1.1-2' }}
       </div>
+      {{ height | json }}
     </div>
   </div>
 </div>
