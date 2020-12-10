@@ -134,4 +134,8 @@ export class AppComponent {
         'https://images.unsplash.com/photo-1471922694854-ff1b63b20054?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTZ8fGJlYWNofGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
     },
   ];
+
+  checkWindowIndex(value: number) {
+    return Math.abs(this.currentPage - value) < 5;
+  }
 }
