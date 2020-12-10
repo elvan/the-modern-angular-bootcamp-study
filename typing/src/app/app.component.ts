@@ -14,4 +14,12 @@ export class AppComponent {
     this.enteredText = value;
     console.log(this.enteredText);
   }
+
+  compare(randomLetter: string, enteredLetter: string): string {
+    if (!enteredLetter) {
+      return 'pending';
+    }
+
+    return randomLetter === enteredLetter ? 'correct' : 'incorrect';
+  }
 }
