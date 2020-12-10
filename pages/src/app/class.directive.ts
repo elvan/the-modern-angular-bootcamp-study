@@ -4,11 +4,9 @@ import { Directive, ElementRef, Input } from '@angular/core';
   selector: '[appClass]',
 })
 export class ClassDirective {
-  @Input() backgroundColor = '';
-  constructor(private elementRef: ElementRef) {
-    // NEVER DO THIS!!!
-    setTimeout(() => {
-      this.elementRef.nativeElement.style.backgroundColor = this.backgroundColor;
-    }, 100);
+  constructor(private elementRef: ElementRef) {}
+
+  @Input() set backgroundColor(color: string) {
+    this.elementRef.nativeElement.style.backgroundColor = color;
   }
 }
