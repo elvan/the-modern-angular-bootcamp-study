@@ -10,6 +10,7 @@ export class AppComponent {
   date: string = '';
   amount: string = '';
   height: string = '';
+  miles: number = 0;
 
   onNameChange(value: string) {
     this.name = value;
@@ -25,5 +26,9 @@ export class AppComponent {
 
   onHeightChange(value: string) {
     this.height = value;
+  }
+
+  onMilesChange(value: number) {
+    this.miles = value;
   }
 }
