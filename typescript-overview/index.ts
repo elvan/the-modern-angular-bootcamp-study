@@ -1,4 +1,4 @@
 import { Car } from './Car';
 
 const myCar = new Car();
-myCar.year;
+console.log(myCar.year);

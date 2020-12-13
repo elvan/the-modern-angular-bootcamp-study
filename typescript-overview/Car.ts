@@ -1,3 +1,11 @@
 export class Car {
-  year = 2000;
+  year: number;
+
+  constructor() {
+    this.year = 2010;
+  }
+
+  drive(speed: number) {
+    console.log(`Driving at ${speed}`);
+  }
 }
