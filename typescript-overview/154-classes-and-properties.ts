@@ -1,13 +1,7 @@
 class Car {
-  public color: string;
-  private year: number;
+  constructor(public color: string, private year: number) {}
 
-  constructor(color: string, year: number) {
-    this.color = color;
-    this.year = year;
-  }
-
-  public drive() {
+  drive() {
     this.putInGear();
     this.pressPedal();
     this.turnWheel();
