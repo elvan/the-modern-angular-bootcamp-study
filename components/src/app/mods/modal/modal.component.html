@@ -4,14 +4,17 @@
     class="ui modal visible active">
     <i (click)="onCloseClick()"
       class="close icon"></i>
-    <div class="header">Modal
+    <div class="header">
+      <ng-content select=[modalTitle]></ng-content>
     </div>
     <div class="content">
-      <p>Some content for the Modal Window will go right here</p>
+      <ng-content></ng-content>
     </div>
     <div class="actions">
-      <button (click)="onCloseClick()"
-        class="ui button">OK</button>
+      <ng-content select="[modalFooter]"></ng-content>
+    </div>
+    <div class="actions actions-default">
+      <button (click)="onCloseClick()" class="ui button">OK</button>
     </div>
   </div>
 </div>
