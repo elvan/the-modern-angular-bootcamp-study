@@ -9,11 +9,15 @@ import { PhotosService } from '../photos.service';
 export class PhotoShowComponent implements OnInit {
   photoUrl: string = '';
 
-  constructor(private photoService: PhotosService) {
+  constructor(private photoService: PhotosService) {}
+
+  ngOnInit(): void {
+    this.getRandomPhoto();
+  }
+
+  getRandomPhoto() {
     this.photoService.getPhoto().subscribe((response) => {
       this.photoUrl = response.urls.small;
     });
   }
-
-  ngOnInit(): void {}
 }
