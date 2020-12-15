@@ -15,7 +15,11 @@ export class PhotoShowComponent implements OnInit {
     this.getRandomPhoto();
   }
 
-  getRandomPhoto() {
+  onClick() {
+    this.getRandomPhoto();
+  }
+
+  private getRandomPhoto() {
     this.photoService.getPhoto().subscribe((response) => {
       this.photoUrl = response.urls.small;
     });
