@@ -9,8 +9,10 @@
     [control]="cardForm.controls.securityCode"></app-input>
   <button type="submit"
     class="button is-primary"
-    [disabled]="cardForm.invalid">
-    Submit</button>
+    [disabled]="cardForm.invalid">Submit</button>
+  <button type="reset"
+    class="button is-warning"
+    (click)="onReset()">Reset</button>
 </form>
 
 <hr />
