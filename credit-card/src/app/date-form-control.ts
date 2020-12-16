@@ -2,8 +2,10 @@ import { FormControl } from '@angular/forms';
 
 export class DateFormControl extends FormControl {
   setValue(value: any, options: any) {
-    console.log(value);
-
-    super.setValue(value + '*', options);
+    if (value.length === 2 && !value.includes('/')) {
+      super.setValue(value + '/', { ...options, emitModelToViewChange: true });
+    } else {
+      super.setValue(value, { ...options, emitModelToViewChange: true });
+    }
   }
 }
