@@ -1,10 +1,20 @@
 <div class="container">
   <form #emailForm="ngForm">
     <input [(ngModel)]="email"
+      #emailControl="ngModel"
       type="email"
       name="email"
       pattern=".+@.+\..+"
       required />
+
+    <ng-container *ngIf="emailControl.invalid && emailControl.touched">
+      <div *ngIf="emailControl.errors.required">
+        Please enter an email address
+      </div>
+      <div *ngIf="emailControl.errors.pattern">
+        Must be a valid email address
+      </div>
+    </ng-container>
   </form>
 
   <hr />
