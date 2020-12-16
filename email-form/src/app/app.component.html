@@ -1,5 +1,6 @@
 <div class="container">
-  <form #emailForm="ngForm">
+  <form (ngSubmit)="onSubmit()"
+    #emailForm="ngForm">
     <input [(ngModel)]="email"
       #emailControl="ngModel"
       type="email"
@@ -15,6 +16,9 @@
         Must be a valid email address
       </div>
     </ng-container>
+
+    <button [disabled]="emailControl.invalid"
+      type="submit">Submit</button>
   </form>
 
   <hr />
