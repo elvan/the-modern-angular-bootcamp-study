@@ -12,6 +12,6 @@ export class UniqueUsername implements AsyncValidator {
   ): Promise<ValidationErrors> | Observable<ValidationErrors> => {
     const { value } = control;
     console.log(this.httpClient);
-    return of({ uniqueUsername: true });
+    return of({ nonUniqueUsername: true });
   };
 }
