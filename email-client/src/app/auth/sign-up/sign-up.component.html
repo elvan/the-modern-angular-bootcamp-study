@@ -1,1 +1,23 @@
-<p>sign-up works!</p>
+<h3>Create an Account</h3>
+
+<form [formGroup]="authForm">
+  <div>
+    <label>Username</label><br />
+    <input formControlName="username" />
+  </div>
+  <div>
+    <label>Password</label><br />
+    <input formControlName="password" />
+  </div>
+  <div>
+    <label>Password Confirmation</label><br />
+    <input formControlName="passwordConfirmation" />
+  </div>
+  <div>
+    <button type="submit">Register</button>
+  </div>
+</form>
+
+<hr />
+
+Form is valid: {{ authForm.valid }}
