@@ -19,4 +19,15 @@ export class AuthService {
       }
     );
   }
+
+  signUp(credentials: any) {
+    return this.httpClient.post<any>(
+      'https://api.angular-email.com/auth/signup',
+      {
+        username: credentials.username,
+        password: credentials.password,
+        passwordConfirmation: credentials.passwordConfirmation,
+      }
+    );
+  }
 }
