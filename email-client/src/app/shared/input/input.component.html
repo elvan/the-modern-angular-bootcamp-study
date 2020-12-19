@@ -1,6 +1,7 @@
 <div class="field">
   <label>{{ label }}</label>
-  <input [formControl]="control" />
+  <input [formControl]="control"
+    [type]="type" />
 
   <div *ngIf="control.errors && (control.dirty || control.touched)"
     class="ui pointing red basic label">
@@ -9,6 +10,9 @@
     </p>
     <p *ngIf="control.errors.minlength">
       At least {{ control.errors.minlength.requiredLength }} characters
+    </p>
+    <p *ngIf="control.errors.maxlength">
+      Can not be longer than {{ control.errors.maxlength.requiredLength }} characters
     </p>
     <p *ngIf="control.errors.pattern">
       Please provide a valid value
