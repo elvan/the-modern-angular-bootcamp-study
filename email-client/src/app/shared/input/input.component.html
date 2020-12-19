@@ -1,4 +1,23 @@
 <div class="field">
   <label>{{ label }}</label>
   <input [formControl]="control" />
+
+  <div *ngIf="control.errors && (control.dirty || control.touched)"
+    class="ui pointing red basic label">
+    <p *ngIf="control.errors.required">
+      Value is required
+    </p>
+    <p *ngIf="control.errors.minlength">
+      At least {{ control.errors.minlength.requiredLength }} characters
+    </p>
+    <p *ngIf="control.errors.pattern">
+      Please provide a valid value
+    </p>
+    <p *ngIf="control.errors.nonUniqueUsername">
+      Username is taken
+    </p>
+    <p *ngIf="control.errors.noConnection">
+      No connection
+    </p>
+  </div>
 </div>
