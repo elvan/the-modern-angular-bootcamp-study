@@ -7,10 +7,14 @@ import { AuthService } from './auth/auth.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   signedIn$: BehaviorSubject<boolean>;
 
   constructor(private authService: AuthService) {
     this.signedIn$ = this.authService.signedIn$;
+  }
+
+  ngOnInit(): void {
+    this.authService.checkAuth().subscribe(() => {});
   }
 }
