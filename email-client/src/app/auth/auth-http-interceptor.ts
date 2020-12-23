@@ -19,11 +19,6 @@ export class AuthHttpInterceptor implements HttpInterceptor {
       withCredentials: true,
     });
 
-    return next.handle(modifiedReq).pipe(
-      filter((value) => value.type === HttpEventType.Sent),
-      tap((value) => {
-        console.log('Request was sent to server');
-      })
-    );
+    return next.handle(modifiedReq);
   }
 }
