@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { AuthService } from '../auth.service';
 
@@ -25,7 +26,7 @@ export class SignInComponent implements OnInit {
 
   signedIn$: BehaviorSubject<boolean>;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private router: Router) {
     this.signedIn$ = this.authService.signedIn$;
   }
 
@@ -38,7 +39,7 @@ export class SignInComponent implements OnInit {
 
     this.authService.signIn(this.authForm.value).subscribe({
       next: () => {
-        // console.log(this);
+        this.router.navigateByUrl('/inbox');
       },
       error: ({ error }) => {
         if (error.username || error.password) {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { AuthService } from '../auth.service';
 import { MatchPassword } from '../validators/match-password';
@@ -44,7 +45,8 @@ export class SignUpComponent implements OnInit {
   constructor(
     private matchPassword: MatchPassword,
     private uniqueUsername: UniqueUsername,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {
     this.signedIn$ = this.authService.signedIn$;
   }
@@ -58,7 +60,7 @@ export class SignUpComponent implements OnInit {
 
     this.authService.signUp(this.authForm.value).subscribe({
       next: () => {
-        // console.log(this);
+        this.router.navigateByUrl('/inbox');
       },
       error: (err) => {
         if (!err.status) {
