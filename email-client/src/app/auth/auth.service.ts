@@ -77,8 +77,8 @@ export class AuthService {
     return this.httpClient
       .post<SignedInResponse>(`${this.rootUrl}/auth/signin`, credentials)
       .pipe(
-        tap(({ authenticated }) => {
-          this.signedIn$.next(authenticated);
+        tap(() => {
+          this.signedIn$.next(true);
         })
       );
   }

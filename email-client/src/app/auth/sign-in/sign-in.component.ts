@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { BehaviorSubject } from 'rxjs';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -22,7 +23,11 @@ export class SignInComponent implements OnInit {
     ]),
   });
 
-  constructor(private authService: AuthService) {}
+  signedIn$: BehaviorSubject<boolean>;
+
+  constructor(private authService: AuthService) {
+    this.signedIn$ = this.authService.signedIn$;
+  }
 
   ngOnInit(): void {}
 

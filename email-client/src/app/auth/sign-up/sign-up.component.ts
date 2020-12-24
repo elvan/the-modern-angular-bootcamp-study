@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { BehaviorSubject } from 'rxjs';
 import { AuthService } from '../auth.service';
 import { MatchPassword } from '../validators/match-password';
 import { UniqueUsername } from '../validators/unique-username';
@@ -38,11 +39,15 @@ export class SignUpComponent implements OnInit {
     }
   );
 
+  signedIn$: BehaviorSubject<boolean>;
+
   constructor(
     private matchPassword: MatchPassword,
     private uniqueUsername: UniqueUsername,
     private authService: AuthService
-  ) {}
+  ) {
+    this.signedIn$ = this.authService.signedIn$;
+  }
 
   ngOnInit(): void {}
 
