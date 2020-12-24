@@ -1,6 +1,7 @@
 <h3>Sign In</h3>
 
 <form [formGroup]="authForm"
+  (ngSubmit)="onSubmit()"
   class="ui form">
   <app-input [control]="authForm.controls.username"
     label="Username"
@@ -10,5 +11,7 @@
     label="Password"
     type="password"></app-input>
 
-  <button type="submit">Sign In</button>
+  <button [disabled]="!authForm.valid"
+    type="submit"
+    class="ui submit button primary">Sign In</button>
 </form>

@@ -17,6 +17,11 @@ interface SignUpResponse {
   username: string;
 }
 
+interface SignInCredentials {
+  username: string;
+  password: string;
+}
+
 interface SignedInResponse {
   authenticated: boolean;
   username: string;
@@ -42,11 +47,7 @@ export class AuthService {
 
   signUp(credentials: SignUpCredentials) {
     return this.httpClient
-      .post<SignUpResponse>(`${this.rootUrl}/auth/signup`, {
-        username: credentials.username,
-        password: credentials.password,
-        passwordConfirmation: credentials.passwordConfirmation,
-      })
+      .post<SignUpResponse>(`${this.rootUrl}/auth/signup`, credentials)
       .pipe(
         tap(() => {
           this.signedIn$.next(true);
@@ -70,5 +71,15 @@ export class AuthService {
         this.signedIn$.next(false);
       })
     );
+  }
+
+  signIn(credentials: SignInCredentials) {
+    return this.httpClient
+      .post<SignedInResponse>(`${this.rootUrl}/auth/signin`, credentials)
+      .pipe(
+        tap(({ authenticated }) => {
+          this.signedIn$.next(authenticated);
+        })
+      );
   }
 }

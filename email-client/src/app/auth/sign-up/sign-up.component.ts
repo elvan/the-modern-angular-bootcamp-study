@@ -52,8 +52,8 @@ export class SignUpComponent implements OnInit {
     }
 
     this.authService.signUp(this.authForm.value).subscribe({
-      next: (response) => {
-        console.log(this);
+      next: () => {
+        // console.log(this);
       },
       error: (err) => {
         if (!err.status) {
