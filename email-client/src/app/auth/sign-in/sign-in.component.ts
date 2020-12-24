@@ -35,11 +35,9 @@ export class SignInComponent implements OnInit {
       next: () => {
         // console.log(this);
       },
-      error: (err) => {
-        if (!err.status) {
-          this.authForm.setErrors({ noConnection: true });
-        } else {
-          this.authForm.setErrors({ unknownError: true });
+      error: ({ error }) => {
+        if (error.username || error.password) {
+          this.authForm.setErrors({ credentials: true });
         }
       },
     });

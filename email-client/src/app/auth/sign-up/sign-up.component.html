@@ -3,6 +3,7 @@
 <form [formGroup]="authForm"
   (ngSubmit)="onSubmit()"
   class="ui form">
+
   <app-input [control]="authForm.controls.username"
     label="Username"
     type="text"></app-input>
@@ -31,9 +32,8 @@
   </div>
 
   <div>
-    <button
-      [disabled]="!authForm.valid"
-      class="ui submit button primary"
-      type="submit">Submit</button>
+    <button [disabled]="!authForm.valid"
+      class="ui submit button primary">Submit</button>
   </div>
+
 </form>
