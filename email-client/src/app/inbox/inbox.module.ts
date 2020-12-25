@@ -16,5 +16,6 @@ import { InboxRoutingModule } from './inbox-routing.module';
     EmailShowComponent,
   ],
   imports: [CommonModule, InboxRoutingModule],
+  // exports: [EmailIndexComponent],
 })
 export class InboxModule {}
