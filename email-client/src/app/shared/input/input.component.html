@@ -1,7 +1,7 @@
 <div class="field">
   <label>{{ label }}</label>
   <input [formControl]="control"
-    [type]="type" />
+    [type]="type">
 
   <div *ngIf="control.errors && (control.dirty || control.touched)"
     class="ui pointing red basic label">
