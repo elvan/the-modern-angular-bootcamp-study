@@ -21,6 +21,5 @@ import { PlaceholderComponent } from './placeholder/placeholder.component';
     NotFoundComponent,
   ],
   imports: [CommonModule, InboxRoutingModule, SharedModule],
-  // exports: [EmailIndexComponent],
 })
 export class InboxModule {}
