@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { SharedModule } from '../shared/shared.module';
 import { EmailCreateComponent } from './email-create/email-create.component';
 import { EmailIndexComponent } from './email-index/email-index.component';
 import { EmailReplyComponent } from './email-reply/email-reply.component';
@@ -19,7 +20,7 @@ import { PlaceholderComponent } from './placeholder/placeholder.component';
     PlaceholderComponent,
     NotFoundComponent,
   ],
-  imports: [CommonModule, InboxRoutingModule],
+  imports: [CommonModule, InboxRoutingModule, SharedModule],
   // exports: [EmailIndexComponent],
 })
 export class InboxModule {}
