@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { InboxRoutingModule } from './inbox-routing.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PlaceholderComponent } from './placeholder/placeholder.component';
+import { EmailFormComponent } from './email-form/email-form.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { PlaceholderComponent } from './placeholder/placeholder.component';
     EmailShowComponent,
     PlaceholderComponent,
     NotFoundComponent,
+    EmailFormComponent,
   ],
   imports: [CommonModule, InboxRoutingModule, SharedModule],
 })
