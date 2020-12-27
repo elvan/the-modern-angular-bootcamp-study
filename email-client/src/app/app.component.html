@@ -9,7 +9,7 @@
           routerLinkActive="active">Inbox</a>
         <a class="ui item"
           routerLink="/sign-out"
-          routerLinkActive="active">Sign Out</a>
+          routerLinkActive="active">Sign Out ({{ username$ | async}}@angular-email.com)</a>
       </ng-container>
 
       <ng-container *ngIf="!(signedIn$ | async)">
