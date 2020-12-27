@@ -17,6 +17,9 @@
     <p *ngIf="control.errors.pattern">
       Please provide a valid value
     </p>
+    <p *ngIf="control.errors.email">
+      Please enter a valid email address
+    </p>
     <p *ngIf="control.errors.nonUniqueUsername">
       Username is taken
     </p>
