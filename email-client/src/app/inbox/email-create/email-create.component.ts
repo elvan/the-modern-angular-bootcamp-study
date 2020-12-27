@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { from } from 'rxjs';
+import { AuthService } from 'src/app/auth/auth.service';
 import { Email } from '../email';
 
 @Component({
@@ -11,12 +12,12 @@ export class EmailCreateComponent implements OnInit {
   showModal = false;
   email: Email;
 
-  constructor() {
+  constructor(private authService: AuthService) {
     this.email = {
       id: '',
       subject: '',
       text: '',
-      from: 'bootcamp@angular-email.com',
+      from: `${this.authService.username}@angular-email.com`,
       to: '',
       html: '',
     };
