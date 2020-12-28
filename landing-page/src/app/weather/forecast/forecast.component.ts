@@ -8,8 +8,8 @@ import { ForecastService } from '../forecast.service';
 })
 export class ForecastComponent implements OnInit {
   constructor(private forecastService: ForecastService) {
-    forecastService.getCurrentLocation().subscribe((coords) => {
-      console.log(coords);
+    this.forecastService.getForecast().subscribe((response) => {
+      console.log(response);
     });
   }
 
