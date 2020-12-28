@@ -23,7 +23,7 @@ interface GeolocationCoordinates {
 
 interface ForecastResponse {
   list: {
-    dt_text: string;
+    dt_txt: string;
     main: {
       temp: number;
     };
@@ -57,7 +57,7 @@ export class ForecastService {
       filter((value, index) => index % 8 === 0),
       map((value) => {
         return {
-          dateString: value.dt_text,
+          dateString: value.dt_txt,
           temp: value.main.temp,
         };
       }),
