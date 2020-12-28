@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subscriber } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +8,7 @@ export class ForecastService {
   constructor() {}
 
   getCurrentLocation() {
-    return new Observable<GeolocationCoordinates>((observer) => {
+    return new Observable((observer) => {
       window.navigator.geolocation.getCurrentPosition(
         (position) => {
           observer.next(position.coords);
