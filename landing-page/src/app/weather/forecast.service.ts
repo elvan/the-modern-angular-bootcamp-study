@@ -1,7 +1,14 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { filter, map, mergeMap, pluck, switchMap } from 'rxjs/operators';
+import {
+  filter,
+  map,
+  mergeMap,
+  pluck,
+  switchMap,
+  toArray,
+} from 'rxjs/operators';
 import { openWeatherMapKey } from 'src/config/openweathermap';
 
 interface GeolocationCoordinates {
@@ -47,7 +54,14 @@ export class ForecastService {
       ),
       pluck('list'),
       mergeMap((value) => of(...value)),
-      filter((value, index) => index % 8 === 0)
+      filter((value, index) => index % 8 === 0),
+      map((value) => {
+        return {
+          dateString: value.dt_text,
+          temp: value.main.temp,
+        };
+      }),
+      toArray()
     );
   }
 
