@@ -14,6 +14,15 @@ interface GeolocationCoordinates {
   readonly speed: number | null;
 }
 
+interface ForecastResponse {
+  list: {
+    dt_text: string;
+    main: {
+      temp: number;
+    };
+  }[];
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -32,10 +41,13 @@ export class ForecastService {
           .set('appid', openWeatherMapKey);
       }),
       switchMap((params) =>
-        this.httpClient.get(this.url, {
+        this.httpClient.get<ForecastResponse>(this.url, {
           params: params,
         })
-      )
+      ),
+      map((value) => {
+        console.log(value.list);
+      })
     );
   }
 
