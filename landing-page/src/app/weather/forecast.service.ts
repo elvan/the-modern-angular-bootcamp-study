@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
+import { openWeatherMapKey } from 'src/config/openweathermap';
 
 interface GeolocationCoordinates {
   readonly accuracy: number;
@@ -28,7 +29,7 @@ export class ForecastService {
           .set('lat', String(coords.latitude))
           .set('lon', String(coords.longitude))
           .set('units', 'metric')
-          .set('appid', 'a82c613a6c9c414f5db4656a3165bd44');
+          .set('appid', openWeatherMapKey);
       }),
       switchMap((params) =>
         this.httpClient.get(this.url, {
