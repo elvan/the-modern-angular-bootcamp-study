@@ -9,7 +9,7 @@ import { ForecastService } from '../forecast.service';
 export class ForecastComponent implements OnInit {
   constructor(private forecastService: ForecastService) {
     this.forecastService.getForecast().subscribe((response) => {
-      // console.log(response);
+      console.log(response);
     });
   }
 
