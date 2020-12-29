@@ -6,6 +6,7 @@ import {
   map,
   mergeMap,
   pluck,
+  share,
   switchMap,
   toArray,
 } from 'rxjs/operators';
@@ -61,7 +62,8 @@ export class ForecastService {
           temp: value.main.temp,
         };
       }),
-      toArray()
+      toArray(),
+      share()
     );
   }
 
