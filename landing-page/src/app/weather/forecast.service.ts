@@ -8,9 +8,11 @@ import {
   pluck,
   share,
   switchMap,
+  tap,
   toArray,
 } from 'rxjs/operators';
 import { openWeatherMapKey } from 'src/config/openweathermap';
+import { NotificationsService } from '../notifications/notifications.service';
 
 interface GeolocationCoordinates {
   readonly accuracy: number;
@@ -37,7 +39,10 @@ interface ForecastResponse {
 export class ForecastService {
   private url = 'http://api.openweathermap.org/data/2.5/forecast';
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(
+    private httpClient: HttpClient,
+    private notificationService: NotificationsService
+  ) {}
 
   getForecast() {
     return this.getCurrentLocation().pipe(
@@ -78,6 +83,15 @@ export class ForecastService {
           observer.error(error);
         }
       );
-    });
+    }).pipe(
+      tap(
+        () => {
+          this.notificationService.addSuccess('Got current location');
+        },
+        () => {
+          this.notificationService.addError('Failed to get current location');
+        }
+      )
+    );
   }
 }
