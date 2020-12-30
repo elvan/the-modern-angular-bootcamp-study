@@ -1,7 +1,8 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import {
+  catchError,
   filter,
   map,
   mergeMap,
@@ -84,14 +85,13 @@ export class ForecastService {
         }
       );
     }).pipe(
-      tap(
-        () => {
-          this.notificationService.addSuccess('Got current location');
-        },
-        () => {
-          this.notificationService.addError('Failed to get current location');
-        }
-      )
+      tap(() => {
+        this.notificationService.addSuccess('Got current location');
+      }),
+      catchError((error) => {
+        this.notificationService.addError('Failed to get current location');
+        return throwError(error);
+      })
     );
   }
 }
