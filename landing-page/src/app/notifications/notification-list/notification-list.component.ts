@@ -12,6 +12,10 @@ export class NotificationListComponent implements OnInit {
 
   constructor(notificationService: NotificationsService) {
     this.messages$ = notificationService.messagesOutput;
+
+    setInterval(() => {
+      notificationService.addError('Error is working!');
+    }, 1000);
   }
 
   ngOnInit(): void {}
